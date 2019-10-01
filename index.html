@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style> * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: lightsalmon;
+    padding: 20px;
+    font-family: Arial;
+  }
+  
+  .main {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 50px;
+    word-break: break-all;
+  }
+  
+  .row {
+    margin: 8px -16px;
+  }
+  
+  .row,
+  .row > .column {
+    padding: 8px;
+  }
+  
+  .column {
+    float: left;
+    width: 25%;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .content {
+    background-color: white;
+    padding: 10px;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .column {
+      width: 50%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }</style>
+</head>
+<body>
+
+<div class="main">
+
+<h1>Welcome To Thailand</h1>
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+<hr>
+
+<h2>4 famous cities to visit in Thailand</h2>
+<p>The cities that I am about to talk about are the best places to visit when coming as a tourist. (This is my personal opinion)</p>
+
+<div class="row">
+  <div class="column">
+    <div class="content">
+      <img src="Bangkok.jpg" alt="Bangkok" style="width:100%">
+      <h3>Bangkok</h3>
+      <p>Bangkok is one of the biggest city in the Thailand and in the world. The capital of Thailand is one the most visited places in the world for tourism.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="Pattaya.jpg" alt="Pattaya" style="width:100%">
+      <h3>Pattaya</h3>
+      <p>Pattaya is the most popular cities in Thailand. They have one of best waterparks in Thailand that are fun for the whole family. Also it is very Koh Larn a very beautiful off the coast of Pattaya.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="Chiang Mai.jpg" alt="Chiang Mai" style="width:100%">
+      <h3>Chiang Mai</h3>
+      <p>Chiang Mai is the 2nd biggest city in Thailand and one of the most visited cities for tourism. a charming and laidback city which is perfect for relaxing in after a hectic time traveling around the country.  </p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="Phuket.jpg" alt="Phuket" style="width:100%">
+      <h3>Phuket</h3>
+      <p>Phuket is one most visited islands in Thailand and in the world. Phuket probably has one the most beautiful beaches in the world.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="content">
+  <img src="Thailand.jpg" alt="Bear" style="width:100%">
+  <h3>Thailand</h3>
+  <p>In my opinion, Thailand is one the best countries to travel and visit. It has many sightseeing and a lot of things to do for everyone who likes to come. The food is very cheap here and to travel around Thailand is even cheaper compared to western side of the world.   </p>
+</div>
+
+</div>
+
+</body>
+</html>
