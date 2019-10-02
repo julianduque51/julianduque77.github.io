@@ -17,6 +17,7 @@
     margin: auto;
   }
   
+
   h1 {
     font-size: 50px;
     word-break: break-all;
@@ -57,7 +58,95 @@
     .column {
       width: 100%;
     }
-  }</style>
+  }
+  
+  #myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9); 
+}
+
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+  </style>
 </head>
 <body>
 
@@ -77,42 +166,169 @@ Click me to display Date and Time.</button>
 <div class="row">
   <div class="column">
     <div class="content">
-      <img src="Bangkok.jpg" alt="Bangkok" style="width:100%">
+      <img id="myImg" src="Bangkok.jpg" alt="Bangkok" style="width:100%">
       <h3>Bangkok</h3>
       <p>Bangkok is one of the biggest city in the Thailand and in the world. The capital of Thailand is one the most visited places in the world for tourism.</p>
     </div>
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
   </div>
   <div class="column">
     <div class="content">
-    <img src="Pattaya.jpg" alt="Pattaya" style="width:100%">
+    <img id="pattaya" src="Pattaya.jpg" alt="Pattaya" style="width:100%">
       <h3>Pattaya</h3>
       <p>Pattaya is the most popular cities in Thailand. They have one of best waterparks in Thailand that are fun for the whole family. Also it is very Koh Larn a very beautiful off the coast of Pattaya.</p>
     </div>
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
   </div>
+  
   <div class="column">
     <div class="content">
-    <img src="Chiang Mai.jpg" alt="Chiang Mai" style="width:100%">
+    <img id="chiang mai" src="Chiang Mai.jpg" alt="Chiang Mai" style="width:100%">
       <h3>Chiang Mai</h3>
       <p>Chiang Mai is the 2nd biggest city in Thailand and one of the most visited cities for tourism. a charming and laidback city which is perfect for relaxing in after a hectic time traveling around the country.  </p>
     </div>
+    
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
   </div>
+  <hr>
   <div class="column">
     <div class="content">
-    <img src="Phuket.jpg" alt="Phuket" style="width:100%">
+    <img id="phuket" src="Phuket.jpg" alt="Phuket" style="width:100%">
       <h3>Phuket</h3>
       <p>Phuket is one most visited islands in Thailand and in the world. Phuket probably has one the most beautiful beaches in the world.</p>
     </div>
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
   </div>
 
 </div>
-
+<hr>
 <div class="content">
-  <img src="Thailand.jpg" alt="Bear" style="width:100%">
+  <img id="thailand" src="Thailand.jpg" alt="thailand" style="width:100%">
   <h3>Thailand</h3>
   <p>In my opinion, Thailand is one the best countries to travel and visit. It has many sightseeing and a lot of things to do for everyone who likes to come. The food is very cheap here and to travel around Thailand is even cheaper compared to western side of the world.   </p>
 </div>
 
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
 </div>
+
+
+<script>
+
+  var modal = document.getElementById("myModal");
+  
+
+  var img = document.getElementById("myImg");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+
+  var span = document.getElementsByClassName("close")[0];
+  
+
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+
+  var modal = document.getElementById("myModal");
+  
+
+  var img = document.getElementById("pattaya");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+
+  var span = document.getElementsByClassName("close")[0];
+  
+
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+
+  var modal = document.getElementById("myModal");
+  
+
+  var img = document.getElementById("chiang mai");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+
+  var span = document.getElementsByClassName("close")[0];
+  
+
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+  var modal = document.getElementById("myModal");
+  
+
+  var img = document.getElementById("phuket");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+
+  var span = document.getElementsByClassName("close")[0];
+  
+
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+  var modal = document.getElementById("myModal");
+  
+
+  var img = document.getElementById("thailand");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+
+  var span = document.getElementsByClassName("close")[0];
+  
+
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+  </script>
 
 </body>
 </html>
